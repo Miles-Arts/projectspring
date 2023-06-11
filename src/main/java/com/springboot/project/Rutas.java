@@ -3,6 +3,7 @@ package com.springboot.project;
 import com.springboot.project.models.Libro;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -34,9 +35,14 @@ public class Rutas {
 
             if (libro.nombre == null) throw new IllegalArgumentException("No hay libro ");
 
-
-
         return "Libro guardado!!!";
     }
 
+    @GetMapping("/saludar")
+    //@ResponseStatus(value = HttpStatus.OK)
+    //@ResponseStatus(value = HttpStatus.ACCEPTED)
+    @ResponseStatus(value = HttpStatus.MOVED_PERMANENTLY, reason = "Fue movida la ruta 2 de la API")
+    String miSegundaRutaConStatus() {
+        return "Aprendiendo Status, HTTP en Spring Boot";
+    }
 }

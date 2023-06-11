@@ -3,3 +3,5 @@ logging:
     com.springboot.project: DEBUG
 #      com.springboot.project: DEBUG
 
+server.error.include-message: always
+
