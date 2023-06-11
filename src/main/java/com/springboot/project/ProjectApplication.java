@@ -16,10 +16,10 @@ public class ProjectApplication {
 
 
 		logger.debug("Mi mensaje debug");
-		logger.info("Mi mensaje info");
-		logger.warn("Mi mensaje warn");
-		logger.error("Mi mensaje error");
+		logger.trace("Mi mensaje trace");
+//		logger.info("Mi mensaje info");
+//		logger.warn("Mi mensaje warn");
+//		logger.error("Mi mensaje error");
 
 	}
-
 }
