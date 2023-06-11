@@ -4,6 +4,7 @@ import com.springboot.project.models.Libro;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -44,5 +45,18 @@ public class Rutas {
     @ResponseStatus(value = HttpStatus.MOVED_PERMANENTLY, reason = "Fue movida la ruta 2 de la API")
     String miSegundaRutaConStatus() {
         return "Aprendiendo Status, HTTP en Spring Boot";
+
     }
+
+    @GetMapping("/animales/{lugar}/")
+    public ResponseEntity<String> getAnimales(@PathVariable String lugar) {
+        if (lugar.equals("granja")) {
+        return ResponseEntity.status(HttpStatus.OK).body("Caballo, Vaca, Oveje, Gallina");
+        } else if (lugar.equals("selva")) {
+            return ResponseEntity.status(HttpStatus.OK).body("Mno, Gorilla, Puma");
+        } else {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Lugar no válido");
+        }
+    }
+
 }
