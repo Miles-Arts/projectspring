@@ -64,4 +64,14 @@ public class Rutas {
         throw new NullPointerException("----Error de excepción revisar los carácteres y/o información no relevante para el CLIENTE----");
     }
 
+    @GetMapping("/userData")
+    public ResponseEntity<String> getUserData() {
+        return ResponseEntity.status(HttpStatus.OK).header("Content-Type", "application/json").body("{\"name\": \"Mary\"}");
+    }
+
+    @GetMapping("/userData/v2")
+    public  Map<String, Map<String, Object>> getUserDataV2() {
+        return Map.of("user", Map.of("name" , "Mary", "age", 23 ));
+    }
+
 }
