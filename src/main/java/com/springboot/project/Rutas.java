@@ -48,15 +48,20 @@ public class Rutas {
 
     }
 
-    @GetMapping("/animales/{lugar}/")
+    @GetMapping("/animales/{lugar}")
     public ResponseEntity<String> getAnimales(@PathVariable String lugar) {
         if (lugar.equals("granja")) {
         return ResponseEntity.status(HttpStatus.OK).body("Caballo, Vaca, Oveje, Gallina");
         } else if (lugar.equals("selva")) {
-            return ResponseEntity.status(HttpStatus.OK).body("Mno, Gorilla, Puma");
+            return ResponseEntity.status(HttpStatus.OK).body("Mono, Gorilla, Puma");
         } else {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Lugar no válido");
         }
+    }
+
+    @GetMapping("/calcular/{numero}")
+    public int getCalculo(@PathVariable int numero) {
+        throw new NullPointerException("----Error de excepción revisar los carácteres y/o información no relevante para el CLIENTE----");
     }
 
 }
