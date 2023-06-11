@@ -1,6 +1,7 @@
 package com.springboot.project;
 
 import com.springboot.project.models.Libro;
+import com.springboot.project.models.UserData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -72,6 +73,13 @@ public class Rutas {
     @GetMapping("/userData/v2")
     public  Map<String, Map<String, Object>> getUserDataV2() {
         return Map.of("user", Map.of("name" , "Mary", "age", 23 ));
+    }
+
+    @GetMapping("/userData/v3")
+    public UserData getUserDataV3( ) {
+
+        return new UserData("Mary", 23, "Avenida 123");
+//        var userData = new UserData("mary", 23);
     }
 
 }
