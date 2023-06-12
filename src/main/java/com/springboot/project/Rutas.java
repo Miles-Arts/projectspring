@@ -16,7 +16,11 @@ import java.util.Map;
 @RestController
 public class Rutas {
 
-    private OrderService orderService = new OrderService();
+    private OrderService orderService;
+
+    public Rutas (OrderService orderService) {
+        this.orderService = orderService;
+    }
 
     private final Logger logger = LoggerFactory.getLogger(Rutas.class);
 
@@ -89,7 +93,6 @@ public class Rutas {
     @PostMapping("/order")
     public String createOrder(@RequestBody List<Producto> products) {
         orderService.saveOrder(products);
-
         return "Productos guardados";
     }
 
