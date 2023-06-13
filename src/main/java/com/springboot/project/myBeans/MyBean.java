@@ -2,8 +2,10 @@ package com.springboot.project.myBeans;
 
 public class MyBean {
 
-    void saludar() {
-        System.out.println("Primeros Beans");
+    public void saludar() {
+        System.out.println("--------------------------");
+        System.out.println("Hola los primeros Beans!!!");
+        System.out.println("--------------------------");
     }
 
 }

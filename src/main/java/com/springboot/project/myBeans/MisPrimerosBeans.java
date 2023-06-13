@@ -7,7 +7,8 @@ import org.springframework.context.annotation.Configuration;
 public class MisPrimerosBeans {
 
     @Bean
-    MyBean crearMiBean () {
+    public MyBean crearMiBean () {
+
         return new MyBean();
     }
 

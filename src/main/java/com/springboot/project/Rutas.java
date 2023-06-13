@@ -3,10 +3,12 @@ package com.springboot.project;
 import com.springboot.project.models.Libro;
 import com.springboot.project.models.Producto;
 import com.springboot.project.models.UserData;
+import com.springboot.project.myBeans.MiComponente;
 import com.springboot.project.myBeans.MyBean;
 import com.springboot.project.services.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,11 +20,17 @@ import java.util.Map;
 @RestController
 public class Rutas {
 
+
     private OrderService orderService;
     private MyBean myBean;
 
-    public Rutas (OrderService orderService, MyBean myBean) {
+    @Autowired
+    private MiComponente miComponente;
+
+    public Rutas (OrderService orderService, MyBean myBean /*, MiComponente miComponente*/) {
         this.orderService = orderService;
+        this.myBean = myBean;
+        //this.miComponente = miComponente;
     }
 
     private final Logger logger = LoggerFactory.getLogger(Rutas.class);
@@ -97,6 +105,18 @@ public class Rutas {
     public String createOrder(@RequestBody List<Producto> products) {
         orderService.saveOrder(products);
         return "Productos guardados";
+    }
+
+    @GetMapping("/mibean")
+    public String saludarDesdeBean() {
+        myBean.saludar();
+        return "Completado!!!";
+    }
+
+    @GetMapping("/micomponente")
+    public String saludarDesdeComponent() {
+        miComponente.saludarDesdeComponente();
+        return "Completado!!!";
     }
 
 }
