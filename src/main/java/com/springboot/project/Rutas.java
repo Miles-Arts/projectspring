@@ -5,6 +5,7 @@ import com.springboot.project.models.Producto;
 import com.springboot.project.models.UserData;
 import com.springboot.project.myBeans.MiComponente;
 import com.springboot.project.myBeans.MyBean;
+import com.springboot.project.services.IOrderService;
 import com.springboot.project.services.OrderService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,16 +22,16 @@ import java.util.Map;
 public class Rutas {
 
 
-    private OrderService orderService;
+    private IOrderService orderService;
     private MyBean myBean;
 
-    @Autowired
+    //@Autowired
     private MiComponente miComponente;
 
-    public Rutas (OrderService orderService, MyBean myBean /*, MiComponente miComponente*/) {
+    public Rutas (IOrderService orderService, MyBean myBean , MiComponente miComponente) {
         this.orderService = orderService;
         this.myBean = myBean;
-        //this.miComponente = miComponente;
+        this.miComponente = miComponente;
     }
 
     private final Logger logger = LoggerFactory.getLogger(Rutas.class);

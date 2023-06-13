@@ -9,8 +9,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 
-@Service
-public class OrderService {
+//@Service
+public class OrderService implements IOrderService {
 
     private final Logger logger = LoggerFactory.getLogger(OrderService.class);
 
